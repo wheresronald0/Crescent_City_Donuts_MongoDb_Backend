@@ -1,0 +1,25 @@
+{
+  "name": "crescent_city_donuts_mongodb_backend",
+  "version": "1.0.0",
+  "description": "Backend Db for React Frontend for Crescent City Donuts",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheresronald0/Crescent_City_Donuts_MongoDb_Backend.git"
+  },
+  "author": "Ron Mason",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wheresronald0/Crescent_City_Donuts_MongoDb_Backend/issues"
+  },
+  "homepage": "https://github.com/wheresronald0/Crescent_City_Donuts_MongoDb_Backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.3.14"
+  }
+}
