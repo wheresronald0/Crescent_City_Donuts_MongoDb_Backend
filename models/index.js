@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+require("mongoose-type-email");
 
 let customerSchema = mongoose.Schema({
   firstName: String,
@@ -6,7 +7,8 @@ let customerSchema = mongoose.Schema({
   street: String,
   city: String,
   state: String,
-  zip: String
+  zip: Number,
+  email: mongoose.SchemaTypes.Email
 });
 
 module.exports = mongoose.model("Customer", customerSchema);

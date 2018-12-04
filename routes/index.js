@@ -22,17 +22,51 @@ router.route("/").post((req, res) => {
 });
 
 //show route
-router.route("/:id").get((req, res) => {
-  Customer.findById(req.params.id, (err, aCustomer) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(aCustomer);
+router.route("/:keyword").get((req, res) => {
+  Customer.find(
+    {
+      $or: [
+        { firstName: req.params.keyword },
+        { lastName: req.params.keyword },
+        { state: req.params.keyword },
+        { email: req.params.keyword }
+      ]
+    },
+    (err, aCustomer) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(aCustomer);
+        res.json(aCustomer);
+      }
     }
-  });
+  );
 });
 
+// router.route("/:keyword").get((req, res) => {
+//   Customer.findOne({ firstName: req.params.keyword }, (err, aCustomer) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(aCustomer);
+//       res.json(aCustomer);
+//     }
+//   });
+// });
+
+// router.route("/state/:keyword").get((req, res) => {
+//   Customer.findOne({ state: req.params.keyword }, (err, aCustomer) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       console.log(aCustomer);
+//       res.json(aCustomer);
+//     }
+//   });
+// });
+
 //edit route (not sure we need to define here)
+
 //update route
 router.route("/:id").put((req, res) => {
   Customer.findByIdAndUpdate(req.params.id, req.body, (err, aCustomer) => {
