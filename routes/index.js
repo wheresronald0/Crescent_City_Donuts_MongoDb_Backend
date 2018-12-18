@@ -3,6 +3,7 @@ const router = express.Router();
 const Customer = require("../models/index.js");
 
 //index route
+
 router.route("/").get((req, res) => {
   Customer.find((err, customers) => {
     if (err) {
@@ -17,7 +18,7 @@ router.route("/").get((req, res) => {
 router.route("/").post((req, res) => {
   const customer = new Customer(req.body);
   customer.save().then(customer => {
-    res.json("customer was added!");
+    res.json(customer);
   });
 });
 
@@ -36,39 +37,14 @@ router.route("/:keyword").get((req, res) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(aCustomer);
         res.json(aCustomer);
       }
     }
   );
 });
 
-// router.route("/:keyword").get((req, res) => {
-//   Customer.findOne({ firstName: req.params.keyword }, (err, aCustomer) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log(aCustomer);
-//       res.json(aCustomer);
-//     }
-//   });
-// });
-
-// router.route("/state/:keyword").get((req, res) => {
-//   Customer.findOne({ state: req.params.keyword }, (err, aCustomer) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log(aCustomer);
-//       res.json(aCustomer);
-//     }
-//   });
-// });
-
-//edit route (not sure we need to define here)
-
 //update route
-router.route("/:id").put((req, res) => {
+router.route("/:_id").put((req, res) => {
   Customer.findByIdAndUpdate(req.params.id, req.body, (err, aCustomer) => {
     if (err) {
       console.log(err);

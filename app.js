@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const indexRoute = require("./routes/index.js");
 
+mongoose.Promise = global.Promise;
 mongoose.connect(
   "mongodb://localhost/Cresent_City_Donuts",
   { useNewUrlParser: true }
