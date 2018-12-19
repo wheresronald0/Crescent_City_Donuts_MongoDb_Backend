@@ -19,6 +19,7 @@ mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static("public"));
 
 //deals with CORS policy
 app.use(function(req, res, next) {
